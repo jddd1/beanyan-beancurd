@@ -1,0 +1,13 @@
+{% extends 'admintemplate.html' %}
+{% load static %}
+{% block content %}
+<section class="menu" id="menu">
+<p class="heading">Are you sure you want to delete it?</p>
+
+<form method="POST" action="{% url 'deleteOrder' item.id %}">
+	{% csrf_token %}
+	<a href="{% url 'AdminOrder'%}" class="btn">Cancel</a>
+	<input type="submit" name="Confirm" class="btn" value="Confirm">
+</form>
+</section>
+{% endblock %}

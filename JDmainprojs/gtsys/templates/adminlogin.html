@@ -1,0 +1,60 @@
+{% extends 'admintemplate.html' %}
+{% load static %}
+{% block content %}
+<head>
+	<style type="text/css">
+		.labelUser{
+			font-size: 2rem;
+		}
+		.username{
+			border: 1px solid;
+			font-size: 2rem;
+			padding: 1rem;
+		}
+		.content_box{
+			text-align: center;
+
+		}
+		#error{
+			font-size: 2rem;
+			color: red;
+		}
+
+	</style>
+</head>
+<section class="menu" id="menu">
+	<div class="content_box">
+		<h1 class="heading">Admin Login</h1>
+		<form onsubmit="return false;">
+			<label for="user" class="labelUser">User: </label>
+			<input type="text" name="user" class="username" id="username">
+			<br><br>
+			<label for="user" class="labelUser">Pass: </label>
+			<input type="password" name="user" class="username" id="password">
+			<br><br>
+			<input type="submit" name="submit" value="Login" class="btn" onclick="loginFunc()">		
+		</form>
+		<p id="error"></p>
+	</div>
+</section>
+
+<script type="text/javascript">
+	function loginFunc(){
+		var user = document.getElementById('username');
+		var pass = document.getElementById('password');
+
+		var adminuser = user.value;
+		var adminpass = pass.value;
+
+		if (adminuser == "Admin" && adminpass == "Admin") {
+			window.location.href="{% url 'AdminProduct' %}";
+
+		}
+
+		else{
+			document.getElementById('error').innerHTML = "Incorrect Credentials";
+		}
+	}
+</script>
+
+{% endblock %}

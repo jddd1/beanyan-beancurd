@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean-Yan Beancurd</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="style/style.css">
+    <style type="text/css">
+        .adminbtn{
+            padding: 1rem;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+
+    <a href="{% url 'Main' %}" class="logo"><img src="{%static 'image/logo1.png' %}"></a>
+
+    <nav class="navbar">
+        <a href="{% url 'Main' %}">home</a>
+        <a href="{% url 'About' %}">about</a>
+        <a href="{% url 'Menu' %}">menu</a>
+        <a href="{% url 'Review' %}">review</a>
+        <a href="{% url 'Order' %}">order</a>
+    </nav>
+
+    <div class="icons">
+        <a href="{% url 'AdminLogin' %}" class="adminbtn">Admin</a>
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+        <a href="{% url 'Cart' %}" class="fas fa-shopping-cart"></a>
+    </div>
+
+</header>
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+{% endblock %}
+</body>
+</html>

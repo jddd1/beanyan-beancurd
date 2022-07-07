@@ -1,0 +1,66 @@
+{% extends 'templates.html' %}
+{% load static %}
+{% block content %}
+    
+<form action="" id="search-form">
+    <input type="search" placeholder="search here..." name="" id="search-box">
+    <label for="search-box" class="fas fa-search"></label>
+    <i class="fas fa-times" id="close"></i>
+</form>
+<section class="home" id="home">
+
+    <div class="swiper-container home-slider">
+
+        <div class="swiper-wrapper wrapper">
+
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>our special taho</span>
+                    <h3>classic fantatic</h3>
+                    <p>Are you craving and feeling nostalgic at the same time? Try the number one taho maker here in Biñan. Bean-Yan Beancurd!</p>
+                    <a href="{% url 'Order' %}" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="{%static 'image/product1.png'%}" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>our special taho</span>
+                    <h3>strawberry burst</h3>
+                    <p>Strawberry taho? You don't need to go to Baguio to get one because we also have it here.</p>
+                    <a href="{% url 'Order' %}" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="{%static 'image/product2.png' %}" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>our special taho</span>
+                    <h3>ube supreme</h3>
+                    <p>Become one of our supremer customer by trying our ube supreme beancurd</p>
+                    <a href="{% url 'Order' %}" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="{%static 'image/product3.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+<script src="{%static 'js/script.js'%}"></script>
+{% endblock %}
+</body>
+
+</html>

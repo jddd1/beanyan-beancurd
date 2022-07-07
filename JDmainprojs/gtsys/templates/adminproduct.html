@@ -1,0 +1,90 @@
+{% extends 'admintemplate.html' %}
+{% load static %}
+{% block content %}
+<head>
+<style type="text/css">
+  .content-table {
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 2rem;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+</style>
+</head>   
+
+<section class="menu" id="menu">
+
+    <h3 class="sub-heading"> our menu </h3>
+    <h1 class="heading"> bean-Yan Beancurd's Specialties </h1>
+    <div class="box-container">
+        <table class="content-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>  
+  <tbody>
+    {% for menu in products %}
+    <tr>
+      <td>{{menu.name}}</td>
+      <td>{{menu.price}}</td>
+      <td>{{menu.category}}</td>
+      <td>{{menu.description}}</td>
+      <td>{{menu.avail}}</td>
+      <td><a href="{% url 'updateProduct' menu.id %}">Update</a></td>
+      <td><a href="{% url 'deleteProduct' menu.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+        
+    </div>
+    <a href="{% url 'createProduct' %}" class="btn">Add Product</a>
+      </section>
+    
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+<script src="js/script.js"></script>
+{% endblock %}

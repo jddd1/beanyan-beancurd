@@ -1,0 +1,125 @@
+{% extends 'templates.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <style type="text/css">
+    .btn2{
+    margin-top: 3rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding:.8rem 3rem;
+    text-align: center;
+    margin-right: 10rem;
+    }
+
+    .btn2:hover{
+        background: var(--green);
+        letter-spacing: .1rem;
+    }
+    .selectProduct, .selectAdds{
+    display: inline-block;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding:.8rem 3rem;
+    text-align: center;
+    }
+
+    </style>
+</head>
+
+<section class="order" id="order">
+
+    <h3 class="sub-heading"> order now </h3>
+    <h1 class="heading"> free and fast </h1>
+
+    <form method="POST" action="#">
+        {% csrf_token %}
+        <div class="inputBox">
+            <div class="input">
+                <span>your name</span>
+                <input type="text" placeholder="enter your name" name="custom_name">
+            </div>
+            <div class="input">
+                <span>your number</span>
+                <input type="phone" placeholder="enter your number" name="custom_number">
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="input">
+                <span>your order</span>
+                <select name="" class="selectProduct" id="product">
+                  {% for item in tubs %}
+                  <option value="{{item.price}}">{{item.name}} - {{item.price}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            <div class="input">
+                <span>adds on</span>
+                <select name="" class="selectAdds" id="adds">
+                    <option value="0">No Add Ons</option>
+                  {% for item in adds %}
+                  <option value="{{item.price}}">{{item.name}} - {{item.price}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="input">
+                <span>how much</span>
+                <input type="text" placeholder="total amount" id="sum" name="total_amount" readonly>
+            </div>
+            <div class="input">
+                <span>Cart Summary</span>
+                <input type="text" placeholder="check your cart here before ordering" id="cart_summary" name="mainProduct" readonly>
+            </div>
+            <div class="input">
+                <input type="buton" value="click here to get the total amount" class="btn2"
+                 onclick="myFunction()">
+            </div>
+        </div>
+        <div class="inputBox">
+            <div class="input">
+                <span>your address</span>
+                <textarea placeholder="enter your address" id="" cols="30" rows="10" name="custom_add"></textarea>
+            </div>
+            <div class="input">
+                <span>your message</span>
+                <textarea placeholder="enter your message" id="" cols="30" rows="10" name="custom_message"></textarea>
+            </div>
+        </div>
+    
+
+        <input type="submit" value="order now" class="btn">
+
+    </form>
+
+</section>
+<script type="text/javascript">
+    function myFunction(){
+        var product = document.getElementById('product').value;
+        var adds = document.getElementById('adds').value;
+
+        total = parseFloat(product) + parseFloat(adds);
+        document.getElementById('sum').value = total;
+
+        var id_product = document.getElementById('product');
+        var id_adds = document.getElementById('adds');
+
+        var name_product = id_product.options[id_product.selectedIndex].text;
+        var name_adds = id_adds.options[id_adds.selectedIndex].text;
+        summary = name_product +" | "+name_adds
+        document.getElementById('cart_summary').value = summary;
+
+        
+    }
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'templates.html' %}
+{% load static %}
+{% block content %}
+<section class="about" id="about">
+
+    <h3 class="sub-heading"> about us </h3>
+    <h1 class="heading"> why choose us? </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="{%static 'image/about.jpg' %}" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Best taho in Biñan</h3>
+            <p>Watch out our affordable, budget friendly and abot kayang presyo na talagang hahanap hanapin mo. Just send us a message here to order. </p>
+            <p>Available now HOT and CHILLED Soya beancurd.</p>
+            <div class="icons-container">
+                <div class="icons">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>low-cost delivery</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>easy payments</span>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-headset"></i>
+                    <span>24/7 service</span>
+                </div>
+            </div>
+            <a href="{% url 'Contact' %}" class="btn">Feedback Here</a>
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}
+
+
+

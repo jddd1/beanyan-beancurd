@@ -1,0 +1,15 @@
+{% extends 'admintemplate.html' %}
+{% load static %}
+{% block content %}
+
+<section class="menu" id="menu">
+	
+<form action="" method="POST">
+	{% csrf_token %}
+	{{form}}
+	<a href="{% url 'AdminProduct'%}" class="btn">Cancel</a>
+	<input type="submit" name="submit" class="btn" value="Submit">
+</form>
+
+</section>
+{% endblock %}

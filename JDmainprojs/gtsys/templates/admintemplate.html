@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="{%static 'css/style.css'%}">
+	<title>Bean-Yan Beancurd - Admin</title>
+	<style type="text/css">
+		.admintext{
+			font-size: 2rem;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+<header>
+
+    <a href="{% url 'Main' %}" class="logo"><img src="{%static 'image/logo1.png' %}"></a>
+    <nav class="navbar">
+        <p class="admintext">You Are in Admin Mode</p>
+    </nav>
+    <nav class="navbar">
+        <a href="{% url 'AdminProduct' %}">Products</a>
+        <a href="{% url 'AdminCustomer' %}">Customers</a>
+        <a href="{% url 'AdminOrder' %}">Orders</a>
+    </nav>
+
+</header>
+	{% block content %}
+
+	{% endblock %}
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
